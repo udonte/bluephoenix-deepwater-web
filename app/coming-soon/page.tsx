@@ -24,7 +24,7 @@ export default function ComingSoonPage() {
         preload="auto"
         className="absolute inset-0 z-0 h-full w-full object-cover object-center"
       >
-        <source src="/video/coming-soon.mp4" type="video/mp4" />
+        <source src="/video/coming-soon-edited.mp4" type="video/mp4" />
       </video>
 
       {/* Header & Revamp Notice positioned directly at the bottom of the centered emblem */}
