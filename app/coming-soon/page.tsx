@@ -42,7 +42,7 @@ export default function ComingSoonPage() {
         >
           <span className="h-[1px] w-6 sm:w-10 bg-[#3b89c9]/60" />
           <p className="font-sans text-xs sm:text-sm md:text-base font-medium tracking-[0.16em] text-neutral-200/90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
-            This website is currently undergoing revamp
+            Our website is currently undergoing revamp
           </p>
           <span className="h-[1px] w-6 sm:w-10 bg-[#3b89c9]/60" />
         </div>
