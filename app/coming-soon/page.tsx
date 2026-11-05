@@ -1,17 +1,18 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 export default function ComingSoonPage() {
   const [showText, setShowText] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowText(true);
-    }, 6000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const currentTime = e.currentTarget.currentTime;
+    if (currentTime >= 6) {
+      if (!showText) setShowText(true);
+    } else {
+      if (showText) setShowText(false);
+    }
+  };
 
   return (
     <section className="fixed inset-0 z-[100] h-screen w-screen overflow-hidden bg-black select-none">
@@ -22,6 +23,7 @@ export default function ComingSoonPage() {
         loop
         playsInline
         preload="auto"
+        onTimeUpdate={handleTimeUpdate}
         className="absolute inset-0 z-0 h-full w-full object-cover object-center"
       >
         <source src="/video/coming-soon.mp4" type="video/mp4" />
