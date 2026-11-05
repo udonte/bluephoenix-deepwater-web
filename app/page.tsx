@@ -11,7 +11,6 @@ import {
   LOCATIONS_DATA,
   EXECUTIVE_TEAM,
 } from "@/lib/data";
-import { redirect } from "next/navigation";
 
 function FeatureIcon({ type }: { type: string }) {
   switch (type) {
@@ -120,7 +119,6 @@ function FeatureIcon({ type }: { type: string }) {
 }
 
 export default function HomePage() {
-  redirect("/coming-soon");
   const ade = EXECUTIVE_TEAM[0];
   const orderedLocationIds = ["takoradi", "lagos", "uk", "accra", "lome"];
   const homeLocations = orderedLocationIds

@@ -7,6 +7,15 @@ const nextConfig: NextConfig = {
   },
   cacheComponents: true,
   partialPrefetching: true,
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/coming-soon",
+        permanent: false,
+      },
+    ];
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [75, 85, 90, 95],
