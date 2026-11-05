@@ -1,18 +1,37 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { COMPANY_INFO } from "@/lib/data";
 
 export function Footer() {
+  const pathname = usePathname();
+  const [clientPathname, setClientPathname] = useState("");
+
+  useEffect(() => {
+    setClientPathname(pathname);
+  }, [pathname]);
+
+  const isIntroPage = clientPathname === "/intro";
+  const isComingSoon = clientPathname === "/coming-soon";
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <footer className="relative bg-[#252525] text-neutral-300">
-      {/* Classic White Footer-Top Strip (Exact architectural match to original site) */}
-      <div className="bg-white text-black border-t border-neutral-200">
+    <footer
+      className={`relative bg-[#252525] text-neutral-300 ${
+        isComingSoon ? "hidden" : ""
+      }`}
+    >
+      {/* Classic White Footer-Top Strip (Hidden on /intro and /coming-soon to match original index.html opener) */}
+      <div
+        className={`bg-white text-black border-t border-neutral-200 ${
+          isIntroPage ? "hidden" : "block"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
             {/* Phone */}

@@ -1,4 +1,13 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 1. The Website
+
+**Blue Phoenix Deepwater Limited** (_trading as Blue Phoenix Marine_) is an international subsea engineering, underwater ship Inspection, Repair & Maintenance (IRM), offshore terminal support, and marine logistics company registered under the laws of the Federal Republic of Nigeria, with International and Administrative Headquarters in Potters Bar, Hertfordshire, United Kingdom.
+
+As a leading provider of subsea and marine services across West Africa and Europe, Blue Phoenix Deepwater deploys full-service surface-supplied and saturation diving spreads, Remotely Operated Vehicles (ROVs), and dedicated support vessels (_DSV Phoenix 1_). Its capabilities span:
+
+- Subsea marine engineering, construction, survey, and inspection of offshore pipelines, SPM/CALM buoys, and FPSO/FSO platforms.
+- Class-approved afloat underwater ship repairs, hull cleaning, propeller polishing, cofferdam installations, and In-Water Surveys (UWILD).
+- Marginal oilfield crude cargo evacuation via specialized shuttle tankers and double-hull barges.
+- Commercial shipbroking, chartering, and Offshore Support Vessel (OSV) supply.
 
 ## Getting Started
 

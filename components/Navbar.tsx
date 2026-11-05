@@ -8,6 +8,7 @@ import { SERVICES, EQUIPMENT_ITEMS, COMPANY_INFO } from "@/lib/data";
 
 export function Navbar() {
   const pathname = usePathname();
+  const [clientPathname, setClientPathname] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<
@@ -16,6 +17,10 @@ export function Navbar() {
   const [mobileAccordion, setMobileAccordion] = useState<
     "services" | "equipment" | null
   >(null);
+
+  useEffect(() => {
+    setClientPathname(pathname);
+  }, [pathname]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -32,13 +37,18 @@ export function Navbar() {
   const otherServices = SERVICES.filter((s) => s.category === "other");
 
   const isActive = (href: string) => {
-    if (href === "/") return pathname === "/";
-    return pathname.startsWith(href);
+    if (!clientPathname) return false;
+    if (href === "/") return clientPathname === "/";
+    return clientPathname.startsWith(href);
   };
+
+  const isComingSoon = clientPathname === "/coming-soon";
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isComingSoon ? "hidden" : ""
+      } ${
         scrolled
           ? "bg-[#0a0a0a]/95 backdrop-blur-md border-b border-white/15 py-2.5 shadow-2xl"
           : "bg-black/40 backdrop-blur-[2px] border-b border-white/10 py-4"
@@ -71,6 +81,15 @@ export function Navbar() {
 
           {/* Desktop Architectural Navigation */}
           <nav className="hidden lg:flex items-center gap-6 xl:gap-7">
+            <Link
+              href="/intro"
+              data-active={isActive("/intro")}
+              onMouseEnter={() => setActiveDropdown(null)}
+              className="nav-link-sweep py-1 text-[13px] font-display font-semibold tracking-[0.2em] uppercase text-white transition-colors"
+            >
+              Intro
+            </Link>
+
             <Link
               href="/"
               data-active={isActive("/")}
@@ -420,6 +439,13 @@ export function Navbar() {
       {mobileOpen && (
         <div className="lg:hidden bg-[#0e0e0e] border-b border-white/20 max-h-[82vh] overflow-y-auto">
           <div className="px-4 py-4 divide-y divide-white/10">
+            <Link
+              href="/intro"
+              onClick={() => setMobileOpen(false)}
+              className="block py-3 text-sm font-display font-bold uppercase tracking-[0.2em] text-white"
+            >
+              Intro
+            </Link>
             <Link
               href="/"
               onClick={() => setMobileOpen(false)}

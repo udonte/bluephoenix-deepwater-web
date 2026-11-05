@@ -11,50 +11,116 @@ import {
   LOCATIONS_DATA,
   EXECUTIVE_TEAM,
 } from "@/lib/data";
+import { redirect } from "next/navigation";
 
 function FeatureIcon({ type }: { type: string }) {
   switch (type) {
     case "droplets":
       return (
-        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 3.25c-4.5 5.25-7 8.5-7 12a7 7 0 1014 0c0-3.5-2.5-6.75-7-12z" />
+        <svg
+          className="w-8 h-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={1.5}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M12 3.25c-4.5 5.25-7 8.5-7 12a7 7 0 1014 0c0-3.5-2.5-6.75-7-12z"
+          />
         </svg>
       );
     case "anchor":
       return (
-        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 8V21m0 0c-4.97 0-9-3.582-9-8h3m6 8c4.97 0 9-3.582 9-8h-3m-6-5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zm-4 3h8" />
+        <svg
+          className="w-8 h-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={1.5}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M12 8V21m0 0c-4.97 0-9-3.582-9-8h3m6 8c4.97 0 9-3.582 9-8h-3m-6-5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zm-4 3h8"
+          />
         </svg>
       );
     case "ship":
       return (
-        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3 17l2.5-6h13L21 17M5 11V6a1 1 0 011-1h12a1 1 0 011 1v5M2 20c2 0 3-1 5-1s3 1 5 1 3-1 5-1 3 1 5 1" />
+        <svg
+          className="w-8 h-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={1.5}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M3 17l2.5-6h13L21 17M5 11V6a1 1 0 011-1h12a1 1 0 011 1v5M2 20c2 0 3-1 5-1s3 1 5 1 3-1 5-1 3 1 5 1"
+          />
         </svg>
       );
     case "wrench":
       return (
-        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        <svg
+          className="w-8 h-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={1.5}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+          />
         </svg>
       );
     case "handshake":
       return (
-        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+        <svg
+          className="w-8 h-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={1.5}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
+          />
         </svg>
       );
     default:
       return (
-        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <svg
+          className="w-8 h-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={1.5}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
         </svg>
       );
   }
 }
 
 export default function HomePage() {
+  redirect("/coming-soon");
   const ade = EXECUTIVE_TEAM[0];
   const orderedLocationIds = ["takoradi", "lagos", "uk", "accra", "lome"];
   const homeLocations = orderedLocationIds
@@ -102,7 +168,10 @@ export default function HomePage() {
       </section>
 
       {/* 3. Why Choose Us? (#features — Open Architectural Layout, No SaaS Boxes) */}
-      <section id="features" className="py-24 bg-white text-black border-b border-neutral-200">
+      <section
+        id="features"
+        className="py-24 bg-white text-black border-b border-neutral-200"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center mb-20">
             <div className="inline-flex justify-center mb-4">
@@ -263,7 +332,10 @@ export default function HomePage() {
 
           {/* Right Case-Study Details (.case-study-details) */}
           <div className="lg:col-span-6 p-8 sm:p-14 lg:p-20 flex items-center">
-            <Reveal direction="right" className="flex flex-col sm:flex-row items-start gap-6 sm:gap-10 max-w-xl">
+            <Reveal
+              direction="right"
+              className="flex flex-col sm:flex-row items-start gap-6 sm:gap-10 max-w-xl"
+            >
               <span className="text-5xl sm:text-6xl font-display font-light text-black tracking-wider sm:border-r sm:border-neutral-300 sm:pr-8 leading-none">
                 01
               </span>
@@ -295,7 +367,10 @@ export default function HomePage() {
       <TestimonialsSection />
 
       {/* 8. Bottom New-Project Enquiry Section (#new-project from home.html) */}
-      <section id="new-project" className="py-20 bg-white text-black text-center border-t border-neutral-200">
+      <section
+        id="new-project"
+        className="py-20 bg-white text-black text-center border-t border-neutral-200"
+      >
         <Reveal className="max-w-3xl mx-auto px-4">
           <h5 className="text-xl sm:text-2xl font-display font-bold uppercase tracking-[0.18em] text-black">
             What marine services do you need?

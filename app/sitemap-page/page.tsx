@@ -34,6 +34,7 @@ export default function SitemapPage() {
               <div className="mt-2 mb-6 h-[3px] w-8 bg-[#ff513b]" />
               <ul className="divide-y divide-neutral-200 border-t border-b border-neutral-200 text-sm">
                 {[
+                  { label: "Intro (Opener)", href: "/intro" },
                   { label: "Home", href: "/" },
                   { label: "About Us", href: "/about" },
                   { label: "Services Overview", href: "/services" },

@@ -10,9 +10,8 @@ export function HomeHero() {
   const [phraseIdx, setPhraseIdx] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const [videoMode, setVideoMode] = useState<"hull" | "phoenix">("hull");
 
-  // Authentic letter-by-letter typewriter state machine (replicating cd-headline letters type)
+  // Authentic letter-by-letter typewriter state machine (replicating cd-headline letters type on home.html)
   useEffect(() => {
     const currentPhrase = phrases[phraseIdx];
     const typingSpeed = isDeleting ? 38 : 75;
@@ -45,11 +44,7 @@ export function HomeHero() {
       {/* High-Resolution Poster Image for instant LCP */}
       <div className="absolute inset-0 z-0">
         <Image
-          src={
-            videoMode === "hull"
-              ? "/images/imgur/ku20DqM.png"
-              : "/images/bpm-images/index-header.png"
-          }
+          src="/images/imgur/ku20DqM.png"
           alt="Blue Phoenix Marine Subsea Operations"
           fill
           priority
@@ -59,32 +54,20 @@ export function HomeHero() {
         />
       </div>
 
-      {/* Full-Bleed HTML5 Background Video */}
+      {/* Full-Bleed HTML5 Background Video (hull_cleaning.mp4 from original home.html) */}
       <video
-        key={videoMode}
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
-        poster={
-          videoMode === "hull"
-            ? "/images/imgur/ku20DqM.png"
-            : "/images/bpm-images/index-header.png"
-        }
+        poster="/images/imgur/ku20DqM.png"
         className="absolute inset-0 z-0 w-full h-full object-cover"
       >
-        <source
-          src={
-            videoMode === "hull"
-              ? "/video/hull_cleaning.mp4"
-              : "/video/Phoenix_Reveal.mp4"
-          }
-          type="video/mp4"
-        />
+        <source src="/video/hull_cleaning.mp4" type="video/mp4" />
       </video>
 
-      {/* Subtle Cinematic Vignette (Keeping video crystal clear like original site) */}
+      {/* Subtle Cinematic Vignette */}
       <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/25 to-black/50" />
 
       {/* Architectural Grid Hairlines */}
@@ -113,48 +96,20 @@ export function HomeHero() {
             />
           </h1>
 
-          {/* Action Buttons & Reel Switcher */}
-          <div className="mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-white/20">
-            <div className="flex flex-wrap items-center gap-4">
-              <Link
-                href="/services"
-                className="btn-sharp-white px-7 py-3.5 text-xs font-display font-semibold uppercase tracking-[0.25em]"
-              >
-                Explore Services
-              </Link>
-              <Link
-                href="/contact"
-                className="px-7 py-3.5 bg-[#3273a5] hover:bg-[#285e89] text-white border-2 border-[#3273a5] text-xs font-display font-semibold uppercase tracking-[0.25em] transition-colors"
-              >
-                24/7 Operations Desk
-              </Link>
-            </div>
-
-            {/* Sharp Architectural Reel Toggle */}
-            <div className="inline-flex items-center border border-white/25 bg-black/60 backdrop-blur-xs self-start sm:self-auto">
-              <button
-                type="button"
-                onClick={() => setVideoMode("hull")}
-                className={`px-4 py-2.5 text-[11px] font-mono uppercase tracking-[0.18em] transition-colors cursor-pointer ${
-                  videoMode === "hull"
-                    ? "bg-white text-black font-semibold"
-                    : "text-white/70 hover:text-white"
-                }`}
-              >
-                01 // Subsea Reel
-              </button>
-              <button
-                type="button"
-                onClick={() => setVideoMode("phoenix")}
-                className={`px-4 py-2.5 text-[11px] font-mono uppercase tracking-[0.18em] border-l border-white/25 transition-colors cursor-pointer ${
-                  videoMode === "phoenix"
-                    ? "bg-white text-black font-semibold"
-                    : "text-white/70 hover:text-white"
-                }`}
-              >
-                02 // Phoenix Reveal
-              </button>
-            </div>
+          {/* Action Buttons */}
+          <div className="mt-8 flex flex-wrap items-center gap-4 pt-6 border-t border-white/20">
+            <Link
+              href="/services"
+              className="btn-sharp-white px-7 py-3.5 text-xs font-display font-semibold uppercase tracking-[0.25em]"
+            >
+              Explore Services
+            </Link>
+            <Link
+              href="/contact"
+              className="px-7 py-3.5 bg-[#3273a5] hover:bg-[#285e89] text-white border-2 border-[#3273a5] text-xs font-display font-semibold uppercase tracking-[0.25em] transition-colors"
+            >
+              24/7 Operations Desk
+            </Link>
           </div>
         </div>
       </div>
